@@ -5,14 +5,15 @@ import pandas as pd
 # Voltamos com o layout="wide" para que a tabela fique espaçosa no computador
 st.set_page_config(page_title="Lista de Visitantes", page_icon="📋", layout="wide")
 
-# Esconde propagandas e menus do Streamlit
+# 1. TRUQUE MÁGICO CORRIGIDO (Mantém o botão do menu lateral)
 esconder_menu_rodape = """
     <style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
+    #MainMenu {visibility: hidden;} /* Esconde os 3 pontinhos do desenvolvedor */
+    footer {visibility: hidden;}    /* Esconde o Made with Streamlit */
+    /* Retiramos a linha do header para o botão do menu não sumir! */
     </style>
 """
+st.markdown(esconder_menu_rodape, unsafe_allow_html=True)
 st.markdown(esconder_menu_rodape, unsafe_allow_html=True)
 
 st.title("📋 Lista de Visitantes")
